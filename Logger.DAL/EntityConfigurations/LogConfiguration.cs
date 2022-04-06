@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Logger.DAL.EntityConfigurations
 {
-    public class LogConfiguration : IEntityTypeConfiguration<Log>
+    public class LogConfiguration : IEntityTypeConfiguration<LogEntity>
     {
-        public void Configure(EntityTypeBuilder<Log> builder)
+        public void Configure(EntityTypeBuilder<LogEntity> builder)
         {
             builder.ToTable("Logs");
 

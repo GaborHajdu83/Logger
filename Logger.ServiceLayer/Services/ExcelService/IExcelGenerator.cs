@@ -4,6 +4,6 @@ namespace Logger.ServiceLayer.Services.ExcelService
 {
     public interface IExcelGenerator
     {
-        byte[] GenerateLogsExcel(IEnumerable<Log> logs);
+        byte[] GenerateLogsExcel(IEnumerable<LogEntity> logs);
     }
 }

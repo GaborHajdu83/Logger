@@ -21,7 +21,7 @@ namespace Logger.Controllers
         {
             try
             {
-                Log result = await _logService.AddLog(loggerDto);
+                LogEntity result = await _logService.AddLog(loggerDto);
 
                 return Created(nameof(AddLog), result);
             }
@@ -36,7 +36,7 @@ namespace Logger.Controllers
         {
             try
             {
-                IEnumerable<Log> result = await _logService.GetLogsByConditions(searchConditionDto);
+                IEnumerable<LogEntity> result = await _logService.GetLogsByConditions(searchConditionDto);
                 return Ok(result);
             }
             catch(Exception ex)

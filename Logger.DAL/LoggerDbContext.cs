@@ -5,7 +5,7 @@ namespace Logger.DAL
 {
     public class LoggerDbContext : DbContext
     {
-        public virtual DbSet<Log> Logs { get; set; }
+        public virtual DbSet<LogEntity> Logs { get; set; }
 
         public LoggerDbContext(DbContextOptions<LoggerDbContext> options) : base(options)
         {

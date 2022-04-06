@@ -6,7 +6,7 @@ namespace Logger.ServiceLayer.Services.ExcelService
 {
     public class ExcelGenerator : IExcelGenerator
     {
-        public byte[] GenerateLogsExcel(IEnumerable<Log> logs)
+        public byte[] GenerateLogsExcel(IEnumerable<LogEntity> logs)
         {
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             using (ExcelPackage excelPackage = new())

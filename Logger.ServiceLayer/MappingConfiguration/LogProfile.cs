@@ -8,7 +8,7 @@ namespace Logger.ServiceLayer.MappingConfiguration
     {
         public LogProfile()
         {
-            CreateMap<LogDto, Log>()
+            CreateMap<LogDto, LogEntity>()
                 .ForMember(d => d.Message, s => s.MapFrom(s => s.Message))
                 .ForMember(d => d.LogLevel, s => s.MapFrom(s => s.LogLevel));
         }

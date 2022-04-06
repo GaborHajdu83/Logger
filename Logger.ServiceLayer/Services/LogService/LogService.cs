@@ -19,11 +19,11 @@ namespace Logger.ServiceLayer.Services.LogService
             _exelGenerator = exelGenerator;
         }
 
-        public async Task<Log> AddLog(LogDto logDto)
+        public async Task<LogEntity> AddLog(LogDto logDto)
         {
             ArgumentNullException.ThrowIfNull(logDto, nameof(logDto));
 
-            Log log = _mapper.Map<LogDto, Log>(logDto);
+            LogEntity log = _mapper.Map<LogDto, LogEntity>(logDto);
             log.Timestamp = DateTime.Now;
 
             await _unitOfWork.LogRepository.AddAsync(log);
@@ -32,16 +32,16 @@ namespace Logger.ServiceLayer.Services.LogService
             return log;
         }
 
-        public async Task<IEnumerable<Log>> GetLogsByConditions(SearchConditionDto searchConditionDto)
+        public async Task<IEnumerable<LogEntity>> GetLogsByConditions(SearchConditionDto searchConditionDto)
         {
-            IEnumerable<Log> logs = await _unitOfWork.LogRepository.GetLogsByConditions(searchConditionDto);
+            IEnumerable<LogEntity> logs = await _unitOfWork.LogRepository.GetLogsByConditions(searchConditionDto);
 
             return logs;
         }
 
         public async Task<byte[]> GetLogsInExcelFile()
         {
-            IEnumerable<Log> logs = await _unitOfWork.LogRepository.GetAllAsync();
+            IEnumerable<LogEntity> logs = await _unitOfWork.LogRepository.GetAllAsync();
 
             if (logs.Any())
             {
@@ -56,7 +56,7 @@ namespace Logger.ServiceLayer.Services.LogService
 
         public async Task DeleteLogsByDateTo(DateTime? dateTo)
         {
-            IEnumerable<Log> logs = await _unitOfWork.LogRepository.GetLogsByDateTo(dateTo);
+            IEnumerable<LogEntity> logs = await _unitOfWork.LogRepository.GetLogsByDateTo(dateTo);
 
             _unitOfWork.LogRepository.RemoveRange(logs);
             await _unitOfWork.SaveChangesAsync();
