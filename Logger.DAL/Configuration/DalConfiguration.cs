@@ -8,8 +8,8 @@ namespace Logger.DAL.Configuration
     {
         public static void AddDalServices(this IServiceCollection services)
         {
-            services.AddTransient<IUnitOfWork, UnitOfWork>();
-            services.AddTransient<ILogRepository, LogRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ILogRepository, LogRepository>();
         }
     }
 }

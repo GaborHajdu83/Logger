@@ -32,7 +32,7 @@ namespace Logger.Controllers
         }
 
         [HttpGet("GetLogsByConditions")]
-        public async Task<IActionResult> GetLogsByConditions([FromBody] SearchConditionDto searchConditionDto)
+        public async Task<IActionResult> GetLogsByConditions([FromQuery] SearchConditionDto searchConditionDto)
         {
             try
             {

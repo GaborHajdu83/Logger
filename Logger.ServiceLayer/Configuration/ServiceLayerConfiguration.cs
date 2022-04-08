@@ -14,8 +14,8 @@ namespace Logger.ServiceLayer.Configuration
 
             services.AddAutoMapper(typeof(LogProfile));
 
-            services.AddTransient<ILogService, LogService>();
-            services.AddTransient<IExcelGenerator, ExcelGenerator>();
+            services.AddScoped<ILogService, LogService>();
+            services.AddScoped<IExcelGenerator, ExcelGenerator>();
         }
     }
 }
